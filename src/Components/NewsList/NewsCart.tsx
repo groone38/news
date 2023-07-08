@@ -1,24 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-type Props = {};
+interface INewsCart {
+  title: string;
+  content: string;
+}
 
-const NewsCart = (props: Props) => {
+const NewsCart = ({ title, content }: INewsCart) => {
   return (
-    <a href="#!" className="block mb-10">
+    <Link to={`/${title}`} className="block mb-10">
       <div className="flex">
         <div>
           <h3 className="mt-3 mb-2 text-gray-700 font-bold text-2xl">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Necessitatibus, facere?
+            {title}
           </h3>
-          <p className="text-gray-700">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur
-            assumenda cupiditate aut porro blanditiis maiores repellendus rerum
-            temporibus consectetur corrupti?
-          </p>
+          <p className="text-gray-700">{content}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
