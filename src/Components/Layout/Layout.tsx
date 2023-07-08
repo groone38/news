@@ -3,9 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-type Props = {};
-
-const Layout = (props: Props) => {
+const Layout = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
       <Header />

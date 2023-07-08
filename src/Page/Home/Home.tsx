@@ -1,43 +1,63 @@
-import React from "react";
-import imgOne from "../../assets/images/img-1.jpg";
+import React, { useEffect, useState } from "react";
 import imgTwo from "../../assets/images/img-2.jpg";
+import axios from "axios";
+import { INews, IResponceNews } from "../../models/News";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [data, setData] = useState<INews[]>([]);
+  useEffect(() => {
+    const responce = async () => {
+      try {
+        await axios
+          .get<IResponceNews>(
+            "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7"
+          )
+          .then((res) => {
+            setData(res.data.articles);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    responce();
+  }, []);
+
   return (
     <>
       <section className="px-2 lg:flex gap-3">
-        <a
-          href="#!"
+        <Link
+          to={`/${data[0]?.title}`}
           className="w-full lg:w-2/3 bg-gradient-to-tr from-red-500 via-purple-500 hover:to-green-500/50 to-blue-500 h-96 mb-4 relative rounded inline-block overflow-hidden"
         >
           <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
           <img
-            src={imgOne}
-            alt="imgOne"
+            src={data[0]?.urlToImage}
+            alt={data[0]?.urlToImage}
             className="absolute left-0 top-0 w-full h-full object-cover z-0"
           />
           <div className="p-4 absolute bottom-0 left-0 z-20">
-            <h2 className="text-4xl font-semibold text-gray-100 leading-tight">
-              Lorem ipsum dolor sit amet.
+            <h2 className="text-2xl md:text-4xl font-semibold text-gray-100 leading-tight">
+              {data[0]?.title}
             </h2>
           </div>
-        </a>
-        <a
-          href="#!"
+        </Link>
+        <Link
+          to={`/${data[1]?.title}`}
           className="w-full lg:w-1/3 bg-violet-300 h-96 mb-4 relative rounded inline-block overflow-hidden"
         >
           <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
           <img
-            src={imgTwo}
-            alt="imgTwo"
+            src={data[1]?.urlToImage}
+            alt={data[1]?.urlToImage}
             className="absolute left-0 top-0 w-full h-full object-cover z-0"
           />
           <div className="p-4 absolute bottom-0 left-0 z-20">
-            <h2 className="text-4xl font-semibold text-gray-100 leading-tight">
-              Lorem ipsum dolor sit amet.
+            <h2 className="text-2xl md:text-4xl font-semibold text-gray-100 leading-tight">
+              {data[1]?.title}
             </h2>
           </div>
-        </a>
+        </Link>
       </section>
       <main className="lg:flex">
         <div className="w-full lg:w-2/3">
