@@ -12,7 +12,7 @@ const MainNews = ({ firstNews, secondNews }: IMainNews) => {
     <section className="px-2 lg:flex gap-3">
       <Link
         to={`/${firstNews?.title}`}
-        className="w-full lg:w-2/3 bg-gradient-to-tr from-red-500 via-purple-500 hover:to-green-500/50 to-blue-500 h-96 mb-4 relative rounded inline-block overflow-hidden"
+        className="main-news lg:w-2/3 bg-gradient-to-tr from-red-500 via-purple-500 hover:to-green-500/50 to-blue-500 "
       >
         <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
         <img
@@ -28,7 +28,7 @@ const MainNews = ({ firstNews, secondNews }: IMainNews) => {
       </Link>
       <Link
         to={`/${secondNews?.title}`}
-        className="w-full lg:w-1/3 bg-violet-300 h-96 mb-4 relative rounded inline-block overflow-hidden"
+        className="main-news lg:w-1/3 bg-violet-300"
       >
         <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
         <img
