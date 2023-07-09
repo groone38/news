@@ -5,7 +5,6 @@ interface IPagination {
   totalNews: number;
   setCurrentPage: (num: number) => void;
   currentPage: number;
-  lastNewsPage: number;
 }
 
 const Pagination = ({
@@ -13,7 +12,6 @@ const Pagination = ({
   totalNews,
   setCurrentPage,
   currentPage,
-  lastNewsPage,
 }: IPagination) => {
   const pages: number[] = [];
 
@@ -30,8 +28,8 @@ const Pagination = ({
   };
 
   const goNext = () => {
-    if (currentPage === lastNewsPage) {
-      setCurrentPage(lastNewsPage);
+    if (currentPage === Math.ceil(totalNews / newsPerPage)) {
+      setCurrentPage(currentPage);
     } else {
       setCurrentPage(currentPage + 1);
     }
