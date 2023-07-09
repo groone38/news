@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { INews, IResponceNews } from "../../models/News";
 import Loader from "../../Components/Loader/Loader";
@@ -8,6 +8,7 @@ const News = () => {
   const [data, setData] = useState<INews>();
   const [loading, setLoading] = useState<boolean>(false);
   const { news } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     const responce = async () => {
       setLoading(true);
@@ -67,6 +68,14 @@ const News = () => {
                   {new Date(data?.publishedAt as string).toLocaleString()}
                 </span>
               </div>
+            </div>
+            <div className="flex items-center justify-end gap-4 mt-4">
+              <button onClick={() => navigate(-1)} className="header-btn">
+                Go back
+              </button>
+              <Link to={"/"} className="header-btn">
+                Go Home
+              </Link>
             </div>
           </div>
           <div className="my-4 text-gray-400 py-4 border-y border-gray-200">

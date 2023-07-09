@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { INews, IResponceNews } from "../../models/News";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../Components/Loader/Loader";
 
@@ -8,8 +8,7 @@ const NewsCategory = () => {
   const [data, setData] = useState<INews>();
   const [loading, setLoading] = useState<boolean>(false);
   const { news, category } = useParams();
-  console.log(news);
-  console.log(category);
+  const navigate = useNavigate();
   useEffect(() => {
     console.log("sadsd");
     const responce = async () => {
@@ -70,6 +69,14 @@ const NewsCategory = () => {
                   {new Date(data?.publishedAt as string).toLocaleString()}
                 </span>
               </div>
+            </div>
+            <div className="flex items-center justify-end gap-4 mt-4">
+              <button onClick={() => navigate(-1)} className="header-btn">
+                Go back
+              </button>
+              <Link to={"/"} className="header-btn">
+                Go Home
+              </Link>
             </div>
           </div>
           <div className="my-4 text-gray-400 py-4 border-y border-gray-200">
