@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { INews } from "../../models/News";
 import NewsCart from "./NewsCart";
 import Pagination from "../Pagination/Pagination";
-import CountryNews from "../CountryNews/CountryNews";
+import CountryNews from "../CategoryNews/CategoryNews";
 
 interface INewsList {
   data: INews[];

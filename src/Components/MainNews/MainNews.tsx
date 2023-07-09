@@ -10,10 +10,7 @@ interface IMainNews {
 const MainNews = ({ firstNews, secondNews }: IMainNews) => {
   return (
     <section className="px-2 lg:flex gap-3">
-      <Link
-        to={`/${firstNews?.title}`}
-        className="w-full lg:w-2/3 bg-gradient-to-tr from-red-500 via-purple-500 hover:to-green-500/50 to-blue-500 h-96 mb-4 relative rounded inline-block overflow-hidden"
-      >
+      <Link to={`/${firstNews?.title}`} className="lg:w-2/3 block-news">
         <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
         <img
           src={firstNews?.urlToImage}
@@ -26,10 +23,7 @@ const MainNews = ({ firstNews, secondNews }: IMainNews) => {
           </h2>
         </div>
       </Link>
-      <Link
-        to={`/${secondNews?.title}`}
-        className="w-full lg:w-1/3 bg-violet-300 h-96 mb-4 relative rounded inline-block overflow-hidden"
-      >
+      <Link to={`/${secondNews?.title}`} className="lg:w-1/3 block-news">
         <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
         <img
           src={secondNews?.urlToImage}

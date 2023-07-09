@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CountryNews = () => {
+const CategoryNews = () => {
   return (
     <div className="w-full justify-between items-center md:gap-0 lg:w-1/3 lg:flex-wrap px-2">
       <div className="mb-5">
@@ -11,42 +11,72 @@ const CountryNews = () => {
         <ul>
           <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
             <Link
-              to="/news-country/ru"
+              to="/category/business"
               className="flex items-center text-gray-600"
             >
               <span className="inline-block w-4 h-4 mr-3 bg-gradient-to-bl bg-purple-300"></span>
-              Russian (ru)
+              Business
               <p className="text-gray-500 ml-auto">35 articles</p>
             </Link>
           </li>
           <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
             <Link
-              to="/news-country/us"
+              to="/category/entertainment"
               className="flex items-center text-gray-600"
             >
               <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
-              USA (us)
+              Entertainment
               <p className="text-gray-500 ml-auto">42 articles</p>
             </Link>
           </li>
           <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
             <Link
-              to="/news-country/au"
+              to="/category/general"
               className="flex items-center text-gray-600"
             >
               <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
-              Australia (au)
+              General
               <p className="text-gray-500 ml-auto">31 articles</p>
             </Link>
           </li>
           <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
             <Link
-              to="/news-country/hu"
+              to="/category/health"
               className="flex items-center text-gray-600"
             >
               <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
-              Hungary (hu)
-              <p className="text-gray-500 ml-auto">34 articles</p>
+              Health
+              <p className="text-gray-500 ml-auto">27 articles</p>
+            </Link>
+          </li>
+          <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
+            <Link
+              to="/category/science"
+              className="flex items-center text-gray-600"
+            >
+              <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
+              Science
+              <p className="text-gray-500 ml-auto">35 articles</p>
+            </Link>
+          </li>
+          <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
+            <Link
+              to="/category/sports"
+              className="flex items-center text-gray-600"
+            >
+              <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
+              Sports
+              <p className="text-gray-500 ml-auto">32 articles</p>
+            </Link>
+          </li>
+          <li className="px-1 py-4 border-y border-white hover:border-gray-200 hover-span">
+            <Link
+              to="/category/technology"
+              className="flex items-center text-gray-600"
+            >
+              <span className="inline-block w-4 h-4 mr-3 bg-purple-300"></span>
+              Technology
+              <p className="text-gray-500 ml-auto">39 articles</p>
             </Link>
           </li>
         </ul>
@@ -69,4 +99,4 @@ const CountryNews = () => {
   );
 };
 
-export default CountryNews;
+export default CategoryNews;
