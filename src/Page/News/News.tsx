@@ -14,7 +14,7 @@ const News = () => {
       try {
         await axios
           .get<IResponceNews>(
-            "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7"
+            "https://newsapi.org/v2/top-headlines?country=us&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7"
           )
           .then((res) => {
             res.data.articles.find((item: INews) => {

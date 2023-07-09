@@ -21,3 +21,16 @@
     @apply inline-block py-1 px-3 border border-gray-300 text-gray-500 hover:bg-indigo-600 hover:text-white;
   }
 }
+
+.block-news {
+  @apply relative w-full bg-gradient-to-tr from-red-500 via-purple-500  to-blue-500 hover:to-green-500/50 h-96 rounded inline-block overflow-hidden;
+}
+
+.hover-span:hover span {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgb(0, 115, 255) 100%
+  );
+}
