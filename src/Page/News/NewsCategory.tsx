@@ -8,7 +8,10 @@ const NewsCategory = () => {
   const [data, setData] = useState<INews>();
   const [loading, setLoading] = useState<boolean>(false);
   const { news, category } = useParams();
+  console.log(news);
+  console.log(category);
   useEffect(() => {
+    console.log("sadsd");
     const responce = async () => {
       setLoading(true);
       try {

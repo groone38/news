@@ -30,12 +30,8 @@ const Country = () => {
     <section>
       {loading && <Loader />}
       {data.map((item) => (
-        <div className="px-2">
-          <Link
-            to={`/${item.title}/${category}`}
-            key={item.title}
-            className="main-news"
-          >
+        <div className="px-2" key={item.title}>
+          <Link to={`/${item.title}/${category}`} className="main-news">
             <div className="absolute left-0 top-0 w-full h-full bg-gray-700/50 z-10"></div>
             {item.urlToImage && (
               <img
