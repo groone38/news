@@ -32,19 +32,6 @@ const Header = () => {
               About
             </a>
           </li>
-          <li>
-            <a href="#!" className="header-link">
-              Contact
-            </a>
-          </li>
-        </ul>
-        <ul className="flex items-center gap-3">
-          <li>
-            <button className="header-btn">Login</button>
-          </li>
-          <li>
-            <button className="header-btn">Register</button>
-          </li>
         </ul>
       </nav>
       <button className="md:hidden">

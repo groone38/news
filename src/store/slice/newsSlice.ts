@@ -1,11 +1,16 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { INews, IResponceNews } from "../../models/News";
+
+interface ISearch {
+  category: string | undefined;
+  news: string | undefined;
+}
 
 interface IInitialState {
   mainNews: INews[];
   newsCategory: INews[];
-  news: INews | {};
+  news: INews;
   loading: boolean;
   message: string | unknown;
 }
@@ -13,7 +18,19 @@ interface IInitialState {
 const initialState: IInitialState = {
   mainNews: [],
   newsCategory: [],
-  news: {},
+  news: {
+    author: "",
+    content: "",
+    description: "",
+    publishedAt: "",
+    source: {
+      id: "",
+      name: "",
+    },
+    title: "",
+    url: "",
+    urlToImage: "",
+  },
   loading: false,
   message: "",
 };
@@ -35,6 +52,58 @@ export const fetchMainNews = createAsyncThunk(
   }
 );
 
+export const fetchNews = createAsyncThunk(
+  "news/fetch",
+  async (title: string | undefined, thunkApi) => {
+    try {
+      const data = await axios
+        .get<IResponceNews>(
+          `https://newsapi.org/v2/top-headlines?country=us&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7`
+        )
+        .then((res) => res.data.articles.find((item) => item.title === title));
+      console.log(data);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+export const fetchCategory = createAsyncThunk(
+  "category/fetch",
+  async (category: string, thunkApi) => {
+    try {
+      const data = await axios
+        .get<IResponceNews>(
+          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7`
+        )
+        .then((res) => res.data.articles);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+export const fetchNewsCategory = createAsyncThunk(
+  "newsCategory/fetch",
+  async (search: ISearch, thunkApi) => {
+    try {
+      const data = await axios
+        .get<IResponceNews>(
+          `https://newsapi.org/v2/top-headlines?country=us&category=${search.category}&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7`
+        )
+        .then((res) =>
+          res.data.articles.find((item) => item.title === search.news)
+        );
+      console.log(data);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
 export const newsSlice = createSlice({
   name: "news",
   initialState,
@@ -44,14 +113,33 @@ export const newsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchMainNews.fulfilled, (state, action) => {
-      console.log(action);
       state.loading = false;
       state.mainNews = action.payload as INews[];
     });
     builder.addCase(fetchMainNews.rejected, (state, action) => {
-      console.log(action.payload);
       state.loading = false;
       state.message = action.payload;
+    });
+    builder.addCase(fetchNewsCategory.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchNewsCategory.fulfilled, (state, action) => {
+      state.loading = false;
+      state.news = action.payload as INews;
+    });
+    builder.addCase(fetchNews.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchNews.fulfilled, (state, action) => {
+      state.loading = false;
+      state.news = action.payload as INews;
+    });
+    builder.addCase(fetchCategory.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchCategory.fulfilled, (state, action) => {
+      state.loading = false;
+      state.newsCategory = action.payload as INews[];
     });
   },
 });
