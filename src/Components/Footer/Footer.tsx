@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,20 +9,12 @@ const Footer = () => {
           <h6 className="font-semibold text-gray-700 mb-4">World News!</h6>
           <ul className="flex gap-5 items-center">
             <li>
-              <a
-                href="#!"
-                className="inline-block text-gray-500 py-2 hover:text-gray-900"
-              >
-                Team
-              </a>
-            </li>
-            <li>
-              <a
-                href="#!"
+              <Link
+                to="/about"
                 className="inline-block text-gray-500 py-2 hover:text-gray-900"
               >
                 About Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

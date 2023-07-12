@@ -4,20 +4,24 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="md:flex md:gap-4">
+    <div className="px-2 flex-grow md:flex md:gap-4">
       <a
         href="https://protfolio-snowy.vercel.app/"
         target="_blank"
-        className="w-1/3 duration-300 ease-in-out rounded hover:shadow-xl shadow-gray-800 hover:scale-95"
+        className="w-1/2 duration-300 ease-in-out rounded hover:shadow-xl shadow-gray-800 hover:scale-95"
       >
-        <img src={photo} alt="My" />
+        <img
+          src={photo}
+          alt="My"
+          className="h-full object-cover mb-4 md:mb-0"
+        />
       </a>
       <div className="border rounded p-4 border-purple-800 flex flex-col justify-between">
         <i className="text-start uppercase text-2xl">About</i>
         <p>
           Hi!
-          <br /> I'm Andrey, from Russia. This my News cite. In future, i'm
-          going to develop this cite. Maybe add back-end, and buy busines
+          <br /> I'm Andrey, from Russia. This my News website. In future, i'm
+          going to develop this website. Maybe add back-end, and buy busines
           subscription
           <br />
           This project I use{" "}
@@ -25,7 +29,7 @@ const About = () => {
             https://newsapi.org
           </a>{" "}
           for get News request. But, I use free version (Developer) where gift
-          500 request in day, that's why cite can be crush ((((
+          500 request in day, that's why website can be crush ((((
           <br />
           Some{" "}
           <Link to="/" className="header-link">
