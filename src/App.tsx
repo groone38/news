@@ -4,9 +4,9 @@ import Layout from "./Components/Layout/Layout";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
 import News from "./Page/News/News";
-import Country from "./Page/Category/Category";
 import NewsCategory from "./Page/News/NewsCategory";
 import About from "./Page/About/About";
+import Category from "./Page/Category/Category";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/:news" element={<News />} />
-        <Route path="/:news/:category" element={<NewsCategory />} />
-        <Route path="/category/:category" element={<Country />} />
+        <Route path="/category/:category" element={<Category />} />
+        <Route path="/category/:news/:category" element={<NewsCategory />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

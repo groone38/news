@@ -11,11 +11,11 @@ interface INewsList {
 const NewsList = ({ data }: INewsList) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [newsPerPage, setNewsPerPage] = useState(4);
-  const lastNewsPage = currentPage * newsPerPage;
 
+  const lastNewsPage = currentPage * newsPerPage;
   const firstNewsPage = lastNewsPage - newsPerPage;
-  //   console.log("firstNewsPage", firstNewsPage);
   const currentNews = data.slice(firstNewsPage, lastNewsPage);
+
   return (
     <main className="lg:flex">
       <div className="w-full lg:w-2/3">
