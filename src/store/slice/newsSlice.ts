@@ -41,7 +41,7 @@ export const fetchMainNews = createAsyncThunk(
     try {
       const data = await axios
         .get<IResponceNews>(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_VITE_APIKEY}`
+          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_APIKEY}`
         )
         .then((res) => res.data.articles);
 
@@ -58,7 +58,7 @@ export const fetchNews = createAsyncThunk(
     try {
       const data = await axios
         .get<IResponceNews>(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_VITE_APIKEY}`
+          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_APIKEY}`
         )
         .then((res) => res.data.articles.find((item) => item.title === title));
       return data;
@@ -74,7 +74,7 @@ export const fetchCategory = createAsyncThunk(
     try {
       const data = await axios
         .get<IResponceNews>(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${process.env.REACT_APP_VITE_APIKEY}`
+          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`
         )
         .then((res) => res.data.articles);
       return data;
@@ -90,7 +90,7 @@ export const fetchNewsCategory = createAsyncThunk(
     try {
       const data = await axios
         .get<IResponceNews>(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${search.category}&apiKey=${process.env.REACT_APP_VITE_APIKEY}`
+          `https://newsapi.org/v2/top-headlines?country=us&category=${search.category}&apiKey=${process.env.REACT_APP_APIKEY}`
         )
         .then((res) =>
           res.data.articles.find((item) => item.title === search.news)
