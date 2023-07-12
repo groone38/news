@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { INews, IResponceNews } from "../../models/News";
 import Loader from "../../Components/Loader/Loader";
 import { useAppDispatch, useAppSelector } from "../../store/state";
 import { fetchNews } from "../../store/slice/newsSlice";

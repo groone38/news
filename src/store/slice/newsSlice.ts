@@ -61,7 +61,6 @@ export const fetchNews = createAsyncThunk(
           `https://newsapi.org/v2/top-headlines?country=us&apiKey=e3a7fd1804b549e3b18ad4cfeb4552e7`
         )
         .then((res) => res.data.articles.find((item) => item.title === title));
-      console.log(data);
       return data;
     } catch (error) {
       return error;
@@ -96,7 +95,6 @@ export const fetchNewsCategory = createAsyncThunk(
         .then((res) =>
           res.data.articles.find((item) => item.title === search.news)
         );
-      console.log(data);
       return data;
     } catch (error) {
       return error;

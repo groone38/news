@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-const NotFound = (props: Props) => {
+const NotFound = () => {
   return (
     <div>
       NotFound page pleas go to{" "}
