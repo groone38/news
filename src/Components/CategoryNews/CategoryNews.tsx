@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Subscribing from "../Subscribing/Subscribing";
 
 const CategoryNews = () => {
   return (
@@ -81,20 +82,7 @@ const CategoryNews = () => {
           </li>
         </ul>
       </div>
-      <div className="my-5">
-        <h5 className="font-bold text-lg uppercase text-gray-700 mb-2">
-          Subscribe
-        </h5>
-        <p className="text-gray-600 mb-4">Subcribe to our newsletter.</p>
-        <input
-          type="email"
-          placeholder="your email address"
-          className="text-gray-700 bg-gray-100 w-full p-2 border rounded-t hover:broder-gray-600"
-        />
-        <button className="px-5 py-2 bg-indigo-600 text-white rounded-b w-full hover:bg-indigo-800">
-          Subscribe
-        </button>
-      </div>
+      <Subscribing />
     </div>
   );
 };
